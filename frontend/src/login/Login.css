@@ -1,0 +1,33 @@
+.login {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--app-bg);
+}
+
+.login-panel {
+    width: 400px;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: var(--spacing-l);
+
+    border-radius: var(--border-radius-l);
+    gap: var(--spacing-l);
+
+    background-color: white;
+
+    box-shadow: 0px 2px 4px -1px #1A38601A, 0px 3px 12px -1px #1C375A29;
+}
+
+.login-logo {
+    width: 68px;
+}
