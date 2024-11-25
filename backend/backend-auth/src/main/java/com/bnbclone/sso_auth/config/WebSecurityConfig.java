@@ -7,29 +7,53 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.mapping.GrantedAuthoritiesMapper;
+import org.springframework.security.oauth2.client.registration.ClientRegistration;
+import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
+import org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository;
+import org.springframework.security.oauth2.core.AuthorizationGrantType;
+import org.springframework.security.oauth2.core.oidc.IdTokenClaimNames;
 import org.springframework.security.oauth2.core.oidc.user.OidcUserAuthority;
 import org.springframework.security.oauth2.core.user.OAuth2UserAuthority;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig {
-    @Bean
+public class WebSecurityConfig  {
+    @Bean("1")
     public DynamicOAuth2ClientRegistrationRepository dynamicClientRegistrationRepository() {
         return new DynamicOAuth2ClientRegistrationRepository();
     }
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.addAllowedOriginPattern("*");
+        configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT","PATCH","DELETE","OPTIONS"));
+        configuration.setAllowCredentials(false);
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
 
-        http.authorizeRequests(auth -> {auth.requestMatchers("/").permitAll(); auth.anyRequest().authenticated();})
+    @Bean("2")
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.authorizeRequests(auth -> {auth.requestMatchers("/sso/auth").permitAll(); auth.anyRequest().authenticated();})
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .oauth2Login()
                 .clientRegistrationRepository(dynamicClientRegistrationRepository());
         return http.build();
     }
+
+
+
+
 
     private GrantedAuthoritiesMapper grantedAuthoritiesMapper() {
         return (authorities) -> {
