@@ -1,21 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route } from "react-router";
-import { AuthenticationBoundary } from '../src/core/AuthenticationBoundary.tsx';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App.tsx";
+import reportWebVitals from "./reportWebVitals";
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router";
+import { AuthenticationBoundary } from "../src/core/AuthenticationBoundary.tsx";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const routes = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<App />}>
+      {/* <Route index element={<Home />} /> */}
+    </Route>
+  )
+);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <AuthenticationBoundary>
-    <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />} />
-    </Routes>
-  </BrowserRouter>
-  </AuthenticationBoundary>
+      <RouterProvider router={routes} />
+    </AuthenticationBoundary>
   </React.StrictMode>
 );
 
