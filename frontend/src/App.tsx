@@ -9,7 +9,9 @@ import {
     useNavigate,
 } from 'react-router';
 import React, { ReactNode, useEffect } from 'react';
-import './App.css'
+import './App.css';
+import Navbar from './core/components/navigation/Navbar';
+import Home from './main_app/home_page/Home';
 
 /**
  * A component that renders the main navigation sidebar and contains
@@ -29,10 +31,10 @@ export function Application() {
     }, [location.pathname]);
 
     return (
-        <div className="app-container">
-            Navigation
+        <div className="app-container bnb-clone-root">
+            <Navbar />
             <Outlet />
-            Footer
+            {/* Footer */}
         </div>
     );
 }
@@ -47,7 +49,8 @@ export function ApplicationRouter(): ReactNode {
             router={createBrowserRouter(
                 createRoutesFromElements(
                     <Route path="/" element={<Application />}>
-                    </Route>
+                        <Route index element={<Home />}></Route>
+                    </Route>,
                 ),
             )}
         />

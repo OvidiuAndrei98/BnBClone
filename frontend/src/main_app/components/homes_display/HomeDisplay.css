@@ -1,0 +1,122 @@
+.homes-display-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 24px;
+    align-items: center;
+    width: 100%;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.homes-display-container .obj {
+    display: flex;
+    flex-direction: column;
+}
+
+.homes-display-container .obj .photo {
+    background-color: black;
+    border-radius: 15px;
+    width: 100%;
+    height: 250px;
+}
+
+.homes-display-container .obj .home-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 1879px) {
+    .homes-display-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        gap: 24px;
+        align-items: center;
+        width: 100%;
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}
+
+@media (max-width: 1839px) {
+    .homes-display-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        gap: 24px;
+        align-items: center;
+        width: 100%;
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}
+
+@media (max-width: 1639px) {
+    .homes-display-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 24px;
+        align-items: center;
+        width: 100%;
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}
+
+@media (max-width: 1439px) {
+    .homes-display-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 24px;
+        align-items: center;
+        width: 100%;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media (max-width: 1127px) {
+    .homes-display-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 24px;
+        align-items: center;
+        width: 100%;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media (max-width: 949px) {
+    .homes-display-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        align-items: center;
+        width: 100%;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media (max-width: 743px) {
+    .homes-display-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        align-items: center;
+        width: 100%;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+@media (max-width: 549px) {
+    .homes-display-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        align-items: center;
+        width: 100%;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
