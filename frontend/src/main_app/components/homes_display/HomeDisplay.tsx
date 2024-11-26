@@ -1,6 +1,7 @@
 import React from 'react';
 import './HomeDisplay.css';
 import { Carousel } from 'antd';
+import { StarFilled } from '@ant-design/icons';
 
 const HomeDisplay = () => {
     return (
@@ -28,7 +29,10 @@ const HomeDisplay = () => {
                 </div>
                 <div className="home-details">
                     <p>Bucuresti</p>
-                    <p>4,95*</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <StarFilled style={{ height: 12, width: 12 }} />
+                        <p>4,95</p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <p style={{ color: '#6A6A6A', marginBottom: '10px' }}>169 km away</p>
@@ -60,7 +64,10 @@ const HomeDisplay = () => {
                 </div>
                 <div className="home-details">
                     <p>Bucuresti</p>
-                    <p>4,95*</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <StarFilled style={{ height: 12, width: 12 }} />
+                        <p>4,95</p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <p style={{ color: '#6A6A6A', marginBottom: '10px' }}>169 km away</p>
@@ -92,7 +99,10 @@ const HomeDisplay = () => {
                 </div>
                 <div className="home-details">
                     <p>Bucuresti</p>
-                    <p>4,95*</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <StarFilled style={{ height: 12, width: 12 }} />
+                        <p>4,95</p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <p style={{ color: '#6A6A6A', marginBottom: '10px' }}>169 km away</p>
@@ -124,7 +134,10 @@ const HomeDisplay = () => {
                 </div>
                 <div className="home-details">
                     <p>Bucuresti</p>
-                    <p>4,95*</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <StarFilled style={{ height: 12, width: 12 }} />
+                        <p>4,95</p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <p style={{ color: '#6A6A6A', marginBottom: '10px' }}>169 km away</p>
@@ -156,7 +169,10 @@ const HomeDisplay = () => {
                 </div>
                 <div className="home-details">
                     <p>Bucuresti</p>
-                    <p>4,95*</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <StarFilled style={{ height: 12, width: 12 }} />
+                        <p>4,95</p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <p style={{ color: '#6A6A6A', marginBottom: '10px' }}>169 km away</p>
@@ -188,7 +204,10 @@ const HomeDisplay = () => {
                 </div>
                 <div className="home-details">
                     <p>Bucuresti</p>
-                    <p>4,95*</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <StarFilled style={{ height: 12, width: 12 }} />
+                        <p>4,95</p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <p style={{ color: '#6A6A6A', marginBottom: '10px' }}>169 km away</p>
@@ -220,7 +239,10 @@ const HomeDisplay = () => {
                 </div>
                 <div className="home-details">
                     <p>Bucuresti</p>
-                    <p>4,95*</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <StarFilled style={{ height: 12, width: 12 }} />
+                        <p>4,95</p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <p style={{ color: '#6A6A6A', marginBottom: '10px' }}>169 km away</p>
@@ -252,7 +274,10 @@ const HomeDisplay = () => {
                 </div>
                 <div className="home-details">
                     <p>Bucuresti</p>
-                    <p>4,95*</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <StarFilled style={{ height: 12, width: 12 }} />
+                        <p>4,95</p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <p style={{ color: '#6A6A6A', marginBottom: '10px' }}>169 km away</p>
@@ -284,7 +309,10 @@ const HomeDisplay = () => {
                 </div>
                 <div className="home-details">
                     <p>Bucuresti</p>
-                    <p>4,95*</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <StarFilled style={{ height: 12, width: 12 }} />
+                        <p>4,95</p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <p style={{ color: '#6A6A6A', marginBottom: '10px' }}>169 km away</p>
@@ -316,7 +344,10 @@ const HomeDisplay = () => {
                 </div>
                 <div className="home-details">
                     <p>Bucuresti</p>
-                    <p>4,95*</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <StarFilled style={{ height: 12, width: 12 }} />
+                        <p>4,95</p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <p style={{ color: '#6A6A6A', marginBottom: '10px' }}>169 km away</p>
@@ -348,7 +379,10 @@ const HomeDisplay = () => {
                 </div>
                 <div className="home-details">
                     <p>Bucuresti</p>
-                    <p>4,95*</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <StarFilled style={{ height: 12, width: 12 }} />
+                        <p>4,95</p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <p style={{ color: '#6A6A6A', marginBottom: '10px' }}>169 km away</p>
@@ -380,7 +414,10 @@ const HomeDisplay = () => {
                 </div>
                 <div className="home-details">
                     <p>Bucuresti</p>
-                    <p>4,95*</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <StarFilled style={{ height: 12, width: 12 }} />
+                        <p>4,95</p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <p style={{ color: '#6A6A6A', marginBottom: '10px' }}>169 km away</p>
@@ -412,7 +449,10 @@ const HomeDisplay = () => {
                 </div>
                 <div className="home-details">
                     <p>Bucuresti</p>
-                    <p>4,95*</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <StarFilled style={{ height: 12, width: 12 }} />
+                        <p>4,95</p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <p style={{ color: '#6A6A6A', marginBottom: '10px' }}>169 km away</p>
@@ -444,7 +484,10 @@ const HomeDisplay = () => {
                 </div>
                 <div className="home-details">
                     <p>Bucuresti</p>
-                    <p>4,95*</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <StarFilled style={{ height: 12, width: 12 }} />
+                        <p>4,95</p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <p style={{ color: '#6A6A6A', marginBottom: '10px' }}>169 km away</p>
@@ -476,7 +519,10 @@ const HomeDisplay = () => {
                 </div>
                 <div className="home-details">
                     <p>Bucuresti</p>
-                    <p>4,95*</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <StarFilled style={{ height: 12, width: 12 }} />
+                        <p>4,95</p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <p style={{ color: '#6A6A6A', marginBottom: '10px' }}>169 km away</p>
@@ -508,7 +554,10 @@ const HomeDisplay = () => {
                 </div>
                 <div className="home-details">
                     <p>Bucuresti</p>
-                    <p>4,95*</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <StarFilled style={{ height: 12, width: 12 }} />
+                        <p>4,95</p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <p style={{ color: '#6A6A6A', marginBottom: '10px' }}>169 km away</p>
@@ -540,7 +589,10 @@ const HomeDisplay = () => {
                 </div>
                 <div className="home-details">
                     <p>Bucuresti</p>
-                    <p>4,95*</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <StarFilled style={{ height: 12, width: 12 }} />
+                        <p>4,95</p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <p style={{ color: '#6A6A6A', marginBottom: '10px' }}>169 km away</p>
@@ -572,7 +624,10 @@ const HomeDisplay = () => {
                 </div>
                 <div className="home-details">
                     <p>Bucuresti</p>
-                    <p>4,95*</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <StarFilled style={{ height: 12, width: 12 }} />
+                        <p>4,95</p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <p style={{ color: '#6A6A6A', marginBottom: '10px' }}>169 km away</p>
@@ -604,7 +659,10 @@ const HomeDisplay = () => {
                 </div>
                 <div className="home-details">
                     <p>Bucuresti</p>
-                    <p>4,95*</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <StarFilled style={{ height: 12, width: 12 }} />
+                        <p>4,95</p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <p style={{ color: '#6A6A6A', marginBottom: '10px' }}>169 km away</p>
@@ -636,7 +694,10 @@ const HomeDisplay = () => {
                 </div>
                 <div className="home-details">
                     <p>Bucuresti</p>
-                    <p>4,95*</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <StarFilled style={{ height: 12, width: 12 }} />
+                        <p>4,95</p>
+                    </div>
                 </div>
                 <div className="card-footer">
                     <p style={{ color: '#6A6A6A', marginBottom: '10px' }}>169 km away</p>
