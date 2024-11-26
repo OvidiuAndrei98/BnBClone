@@ -46,7 +46,7 @@ interface TokenValues {
     /**
      * The timestamp when this token will expire, in seconds.
      */
-    exp: number;
+    expiration: number;
 
     /**
      * The timestamp when this token was issued, in seconds.
@@ -77,6 +77,8 @@ interface TokenValues {
      * The name of the user for which the token was issued.
      */
     user_name: string;
+
+    loggedIn:boolean;
 
     // TODO: To be completed after decoding a token
 }
@@ -118,16 +120,19 @@ function DecodeJWT(token: string): TokenValues | undefined {
  */
 export function AuthenticationBoundary(props: { children?: ReactNode }) {
     const [authenticationState, setAuthenticationState] = useState(AuthenticationState.Unknown);
-    const [token, setToken] = useState('');
+    // const [token, setToken] = useState('');
+    const [token, setToken] = useState<{loggedIn:boolean, expiration: Date}>();
     const [tokenValues, setTokenValues] = useState<TokenValues>();
 
     // Displays a loading indicator while a login request is in progress
     const [isLoggingIn, setLoggingIn] = useState(false);
 
     useEffect(() => {
-        let token: string | undefined | null;
+        // let token: string | undefined | null;
+        let token: {loggedIn:boolean, expiration: Date} | undefined;
             try {
-                token = localStorage.getItem(AuthenticationTokenKey);
+                const tkn = localStorage.getItem(AuthenticationTokenKey)
+                token = tkn ? JSON.parse(tkn) : undefined;
             } catch (e) {
                 // Assume the token is not set if an error occurs while reading
                 // the local storage (e.g. safari private mode)
@@ -147,16 +152,17 @@ export function AuthenticationBoundary(props: { children?: ReactNode }) {
     useEffect(() => {
         // When the token changes, parse it and verify its validity
         if (token) {
-            const tokenValues = DecodeJWT(token);
-            if (tokenValues) {
-                setTokenValues(tokenValues);
-
-                if (tokenValues.exp * 1000 > Date.now()) {
+            // const tokenValues = DecodeJWT(token);
+            if (token) {
+                setTokenValues(token as unknown as TokenValues);
+                const  dif =Date.now() -  new Date(token.expiration).getTime() 
+               const  thrtMins = Math.round(( dif/ 1000) / 60);
+                if ( +thrtMins <= 0) {
                     // If the token is valid, set the authentication state as authenticated
                     setAuthenticationState(AuthenticationState.Authenticated);
 
                     try {
-                        localStorage.setItem('auth_token', token);
+                        localStorage.setItem('auth_token', JSON.stringify(token));
                     } catch (e) {
                         console.error('Could not persist authorization token.', e);
                         // If the token can't be stored, just log an error; the current session
@@ -177,8 +183,8 @@ export function AuthenticationBoundary(props: { children?: ReactNode }) {
         setLoggingIn(true);
         // Obtain the URL to the SSO authentication page and redirect to it
         try {
-            const token = await authenticate('/sso/auth');
-            console.log(token)
+            const token = JSON.parse(JSON.stringify(await authenticate('/sso/auth')));
+            setToken(token)
             // Store the temporary request token and use it after the redirect to obtain an authentication token
            
         } catch (e) {

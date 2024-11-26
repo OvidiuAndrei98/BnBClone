@@ -1,7 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
+import { useContext } from 'react';
+import { AuthenticationContext } from './core/AuthenticationBoundary.tsx';
 
 function App() {
+  const context = useContext(AuthenticationContext)
   return (
     <div className="App">
       <header className="App-header">
