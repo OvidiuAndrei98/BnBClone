@@ -1,122 +1,118 @@
 .homes-display-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 24px;
-    align-items: center;
-    width: 100%;
     padding-left: 80px;
     padding-right: 80px;
+    gap: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(254px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(350px, 1fr));
+    height: 100%;
+    margin-bottom: 8px;
 }
 
 .homes-display-container .obj {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 351px;
+    cursor: pointer;
 }
 
 .homes-display-container .obj .photo {
     background-color: black;
     border-radius: 15px;
     width: 100%;
-    height: 250px;
+    height: 100%;
+    border-radius: 14px;
+}
+
+.ant-carousel,
+.slick-slider,
+.slick-list,
+.slick-track {
+    height: 100% !important;
+}
+
+.slick-slide > div:first-child {
+    height: 100% !important;
+}
+
+.slick-arrow.slick-prev,
+.slick-arrow.slick-next {
+    background-color: rgba(255, 255, 255, 0.747) !important;
+    opacity: 0 !important;
+    border-radius: 50%;
+    color: black;
+    width: 30px !important;
+    height: 30px !important;
+    z-index: 9999 !important;
+}
+
+.slick-arrow.slick-prev {
+    top: 51% !important;
+}
+
+.homes-display-container .obj:hover .slick-arrow.slick-prev:not(.slick-disabled),
+.homes-display-container .obj:hover .slick-arrow.slick-next:not(.slick-disabled) {
+    display: inline-flex !important;
+    opacity: 1 !important;
+}
+
+.homes-display-container .obj .slick-arrow.slick-prev:hover,
+.homes-display-container .obj .slick-arrow.slick-next:hover {
+    transition: all 0.1s ease-out !important;
+    width: 32px !important;
+    height: 32px !important;
+    background-color: rgb(255, 255, 255) !important;
+}
+
+.homes-display-container .obj .slick-arrow.slick-prev:hover .slick-arrow.slick-next::after {
+    width: 14px !important;
+    height: 14px !important;
+}
+.homes-display-container .obj .slick-arrow.slick-next:hover .slick-arrow.slick-prev::after {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.slick-arrow.slick-next::after {
+    top: 9px !important;
+    left: 8px !important;
+    width: 12px !important;
+    height: 12px !important;
+}
+
+.slick-arrow.slick-prev::after {
+    top: 9px !important;
+    left: 12px !important;
+    width: 12px !important;
+    height: 12px !important;
+}
+
+.homes-display-container .obj .photo .card-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    border-radius: 12px;
 }
 
 .homes-display-container .obj .home-details {
     display: flex;
     justify-content: space-between;
-}
-
-@media (max-width: 1879px) {
-    .homes-display-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        gap: 24px;
-        align-items: center;
-        width: 100%;
-        padding-left: 80px;
-        padding-right: 80px;
-    }
-}
-
-@media (max-width: 1839px) {
-    .homes-display-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        gap: 24px;
-        align-items: center;
-        width: 100%;
-        padding-left: 80px;
-        padding-right: 80px;
-    }
-}
-
-@media (max-width: 1639px) {
-    .homes-display-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        gap: 24px;
-        align-items: center;
-        width: 100%;
-        padding-left: 80px;
-        padding-right: 80px;
-    }
+    font-weight: 500;
+    font-size: 16px;
 }
 
 @media (max-width: 1439px) {
     .homes-display-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        gap: 24px;
-        align-items: center;
-        width: 100%;
         padding-left: 40px;
         padding-right: 40px;
     }
 }
 
-@media (max-width: 1127px) {
-    .homes-display-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 24px;
-        align-items: center;
+@media (max-width: 942px) {
+    .homes-display-container .obj {
+        height: 450px;
         width: 100%;
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-}
-
-@media (max-width: 949px) {
-    .homes-display-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-        align-items: center;
-        width: 100%;
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-}
-
-@media (max-width: 743px) {
-    .homes-display-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-        align-items: center;
-        width: 100%;
-        padding-left: 24px;
-        padding-right: 24px;
-    }
-}
-
-@media (max-width: 549px) {
-    .homes-display-container {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 24px;
-        align-items: center;
-        width: 100%;
-        padding-left: 24px;
-        padding-right: 24px;
     }
 }

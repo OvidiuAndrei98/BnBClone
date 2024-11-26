@@ -10,7 +10,6 @@ const FilterSlider = () => {
                     width="24"
                     height="24"
                 />
-                ssss
             </div>
             <div className="filter-icon-cointainer">
                 <img
