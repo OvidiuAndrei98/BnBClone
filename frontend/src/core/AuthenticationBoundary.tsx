@@ -1,7 +1,7 @@
 // import { Skeleton } from 'antd';
 import React, { ReactNode, useEffect, useState } from 'react';
-import { Login } from '../login/Login.tsx';
-import { authenticate } from '../service/AuthenticationService.ts';
+import { Login } from '../login/Login';
+import { authenticate } from '../service/AuthenticationService';
 // import { Client } from './client/Client';
 // import { DisplayAlert } from './utilities/Alert';
 
