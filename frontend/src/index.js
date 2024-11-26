@@ -1,29 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App.tsx";
+import { ApplicationRouter } from "./App.tsx";
 import reportWebVitals from "./reportWebVitals";
-import {
-  Route,
-  createBrowserRouter,
-  createRoutesFromElements,
-  RouterProvider,
-} from "react-router";
-import { AuthenticationBoundary } from "../src/core/AuthenticationBoundary.tsx";
 
-const routes = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<App />}>
-      {/* <Route index element={<Home />} /> */}
-    </Route>
-  )
-);
+import { AuthenticationBoundary } from "../src/core/AuthenticationBoundary.tsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <AuthenticationBoundary>
-      <RouterProvider router={routes} />
+      <ApplicationRouter/>
     </AuthenticationBoundary>
   </React.StrictMode>
 );
