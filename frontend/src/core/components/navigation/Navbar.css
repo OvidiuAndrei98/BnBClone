@@ -8,7 +8,7 @@
     padding-right: 80px;
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 999999;
     background-color: white;
     box-shadow: 0 2px 4px -4px black;
 }
@@ -40,6 +40,13 @@
     height: 32px;
     width: 32px;
     margin-left: 14px;
+}
+
+.navbar .navbar-settings .user-icon .user-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .navbar .navbar-settings .user-hamburger {

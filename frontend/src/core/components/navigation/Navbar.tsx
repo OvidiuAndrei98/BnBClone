@@ -53,7 +53,7 @@ const Navbar = () => {
                         <HamburgerMenu />
                     </div>
                     <div className="user-icon">
-                        <ProfileIconSvg />
+                        <img className="user-logo" src={authedUser.userDetails.picture} />
                     </div>
                 </div>
             </Popover>

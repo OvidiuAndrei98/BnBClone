@@ -79,7 +79,7 @@ interface TokenValues {
      */
     user_name: string;
 
-    loggedIn: boolean;
+    picture: string;
 
     // TODO: To be completed after decoding a token
 }
