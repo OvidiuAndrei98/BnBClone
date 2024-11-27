@@ -20,7 +20,6 @@ public class SsoAuthApplication {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/sso/auth").allowedOrigins("http://localhost:3000");
 				registry.addMapping("/*").allowedOrigins("https://dev-8vs2lvif2du2k6a6.us.auth0.com");
-
 			}
 		};
 	}

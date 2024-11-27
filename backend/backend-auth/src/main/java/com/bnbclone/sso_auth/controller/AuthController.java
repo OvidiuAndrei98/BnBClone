@@ -1,9 +1,6 @@
 package com.bnbclone.sso_auth.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
@@ -15,14 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.servlet.ModelAndView;
-import reactor.core.publisher.Mono;
 
-import java.security.Principal;
+import static org.yaml.snakeyaml.nodes.Tag.STR;
 
-import static org.springframework.security.oauth2.core.endpoint.OAuth2ParameterNames.GRANT_TYPE;
 
 @Controller
 public class AuthController {
@@ -41,7 +33,7 @@ public class AuthController {
         model.addAttribute("clientName", authorizedClient.getClientRegistration().getClientName());
         model.addAttribute("userAttributes", oauth2User.getAttributes());
         String idToken = ((DefaultOidcUser) authentication.getPrincipal()).getIdToken().getTokenValue();
-        return STR."redirect:http://localhost:3000/?token=\{idToken}";
+        return "redirect:http://localhost:3000/?token=" + idToken;
 
     }
 
