@@ -10,7 +10,7 @@
     top: 0;
     z-index: 1;
     background-color: white;
-    box-shadow:  0 2px 4px -4px black;
+    box-shadow: 0 2px 4px -4px black;
 }
 
 .navbar .navbar-settings {
@@ -58,4 +58,18 @@
         padding-left: 40px;
         padding-right: 40px;
     }
+}
+
+.settings-popup-container .ant-popover-inner {
+    padding: 0;
+}
+
+.settings-popup-container .settings-menu-container .menu-item {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.settings-popup-container .settings-menu-container .menu-item:hover {
+    background-color: #dddddd;
 }

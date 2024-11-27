@@ -7,3 +7,10 @@
     padding: 0;
     margin: 0;
 }
+
+.divider {
+    width: 100%;
+    height: 2px;
+    background-color: #dddddd;
+    margin: 2px 0;
+}
