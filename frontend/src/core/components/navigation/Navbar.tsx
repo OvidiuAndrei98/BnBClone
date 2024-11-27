@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Navbar.css';
 import { HamburgerMenu, NavbarLogo, ProfileIconSvg } from 'src/core/assets/Icons';
 import { Link } from 'react-router';
 import { Popover } from 'antd';
+import { AuthenticationContext } from 'src/core/AuthenticationBoundary';
 const Navbar = () => {
     const [open, setOpen] = useState(false);
+    const authedUser = useContext(AuthenticationContext);
 
     const hide = () => {
         setOpen(false);
@@ -19,6 +21,7 @@ const Navbar = () => {
             <div className="top-container">
                 <div className="menu-item">Sign up</div>
                 <div className="menu-item">Login</div>
+                <div className="menu-item">{authedUser.userDetails.email}</div>
             </div>
             <div className="divider"></div>
             <div className="bottom-container">

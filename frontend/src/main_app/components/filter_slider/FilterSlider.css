@@ -72,10 +72,12 @@
     position: absolute;
     top: -15px;
     cursor: pointer;
-    font-size: 20px;
-    border-radius: 4px;
-    color: var(--primary-color-text);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    color: black;
     z-index: 1;
+    border: 2px solid black !important;
 }
 
 .filter-slider .prev::before,
