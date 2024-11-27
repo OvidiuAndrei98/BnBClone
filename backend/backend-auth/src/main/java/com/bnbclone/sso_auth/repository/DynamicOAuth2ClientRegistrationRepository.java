@@ -62,7 +62,7 @@ public class DynamicOAuth2ClientRegistrationRepository implements ClientRegistra
                 .userNameAttributeName("name")
                 .build());
 
-        return  tenant.getId() == "1" ? dynamicClient1 : dynamicClient2;
+        return  dynamicClient1;
 
 
     }

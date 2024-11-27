@@ -1,9 +1,15 @@
 package com.bnbclone.sso_auth.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
+import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
 import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
+import org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +17,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.servlet.ModelAndView;
 import reactor.core.publisher.Mono;
 
 import java.security.Principal;
@@ -20,24 +27,27 @@ import static org.springframework.security.oauth2.core.endpoint.OAuth2ParameterN
 @Controller
 public class AuthController {
 
+    @Autowired
+    private OAuth2AuthorizedClientService authorizedClientService;
+
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/")
-    public ResponseEntity<Model> index(Model model,
-                        @RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient authorizedClient,
-                        @AuthenticationPrincipal OAuth2User oauth2User) {
+    public String index(Model model,
+                                       @RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient authorizedClient,
+                                       @AuthenticationPrincipal OAuth2User oauth2User,
+                        OAuth2AuthenticationToken authentication
+                        ) {
         model.addAttribute("userName", oauth2User.getName());
         model.addAttribute("clientName", authorizedClient.getClientRegistration().getClientName());
         model.addAttribute("userAttributes", oauth2User.getAttributes());
+        String idToken = ((DefaultOidcUser) authentication.getPrincipal()).getIdToken().getTokenValue();
+        return STR."redirect:http://localhost:3000/?token=\{idToken}";
 
-        return ResponseEntity.ok(model);
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/sso/auth")
-    public ResponseEntity<Mono<ResponseEntity<String>>> auth(Model model
-                                                            ) {
-        WebClient client = WebClient.create("http://localhost:8080/oauth2/authorization/2");
-        Mono<ResponseEntity<String>> user = client.get().retrieve().toEntity(String.class);
-        return ResponseEntity.ok(user);
+    public String auth() {
+        return "redirect:http://localhost:8080/oauth2/authorization/1";
     }
 }
