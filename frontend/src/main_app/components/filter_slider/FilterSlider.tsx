@@ -77,6 +77,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -85,6 +86,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -93,6 +95,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -101,6 +104,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -109,6 +113,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -117,6 +122,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -125,6 +131,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -133,6 +140,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -141,6 +149,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -149,6 +158,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -157,6 +167,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -165,6 +176,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -173,6 +185,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -181,6 +194,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -189,6 +203,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -197,6 +212,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -205,6 +221,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -213,6 +230,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -221,6 +239,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -229,6 +248,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -237,6 +257,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -245,6 +266,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -253,6 +275,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -261,6 +284,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -269,6 +293,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -277,6 +302,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -285,6 +311,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -293,6 +320,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -301,6 +329,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -309,6 +338,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -317,6 +347,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -325,6 +356,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -333,6 +365,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -341,6 +374,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -349,6 +383,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -357,6 +392,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -365,6 +401,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -373,6 +410,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -381,6 +419,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -389,6 +428,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -397,6 +437,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -405,6 +446,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -413,6 +455,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -421,6 +464,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
                 <div className="filter-icon-cointainer">
                     <img
@@ -429,6 +473,7 @@ const FilterSlider = () => {
                         width="24"
                         height="24"
                     />
+                    <span>test description</span>
                 </div>
             </div>
         </div>

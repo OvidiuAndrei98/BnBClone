@@ -6,6 +6,7 @@
     width: calc(100% - 80px);
     height: 80px;
     padding-left: 80px;
+    margin-bottom: 8px;
 }
 
 .filter-slider .filter-icon-cointainer {
@@ -13,13 +14,15 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 64px;
     height: 40px;
+    gap: var(--gap-m);
+    text-wrap: nowrap;
+    align-items: center;
 }
 
 .filter-slider .filter-icon-cointainer:hover:before {
     content: '';
-    bottom: -12px;
+    bottom: -14px;
     right: 0;
     left: 0;
     background-color: #dddddd;
@@ -46,6 +49,8 @@
     scroll-padding-left: 32px;
     scroll-padding-inline-start: 32px;
     min-width: 100%;
+    align-items: center;
+    height: 100%;
 }
 
 .filters-list .filter-icon-cointainer {
@@ -71,6 +76,21 @@
     border-radius: 4px;
     color: var(--primary-color-text);
     z-index: 1;
+}
+
+.filter-slider .prev::before,
+.filter-slider .next::before {
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.8));
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: scale(2);
+    z-index: -1;
 }
 
 .filter-slider .prev {
