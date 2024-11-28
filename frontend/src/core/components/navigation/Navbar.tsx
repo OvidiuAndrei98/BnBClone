@@ -25,7 +25,7 @@ const Navbar = () => {
             </div>
             <div className="divider"></div>
             <div className="bottom-container">
-                <div className="menu-item">Airnbnb your home</div>
+                <div className="menu-item">Airbnb your home</div>
             </div>
         </div>
     );
@@ -53,7 +53,11 @@ const Navbar = () => {
                         <HamburgerMenu />
                     </div>
                     <div className="user-icon">
-                        <img className="user-logo" src={authedUser.userDetails.picture} />
+                        {authedUser ? (
+                            <img className="user-logo" src={authedUser.userDetails.picture} />
+                        ) : (
+                            <ProfileIconSvg />
+                        )}
                     </div>
                 </div>
             </Popover>

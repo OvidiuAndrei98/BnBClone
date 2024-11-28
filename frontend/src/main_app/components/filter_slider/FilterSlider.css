@@ -9,7 +9,7 @@
     margin-bottom: 8px;
     position: sticky;
     top: 80px;
-    z-index: 99999;
+    z-index: 10;
     background: white;
     box-shadow: 0 0 2px 1px #dddddd;
     padding: 0 80px;
