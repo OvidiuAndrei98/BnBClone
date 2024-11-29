@@ -9,9 +9,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class HouseReview {
-    private String userId;
-    private String userName;
-    private ReviewRating rating;
-    private String review;
+public class HouseRoom {
+    private String name;
+    private String description;
+    private RoomType roomType;
+
 }
