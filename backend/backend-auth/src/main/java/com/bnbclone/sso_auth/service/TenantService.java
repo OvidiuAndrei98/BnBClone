@@ -15,24 +15,9 @@ import java.util.concurrent.ExecutionException;
 
 @Service
 public class TenantService {
-    private final FireStore fireStore;
 
-    @Autowired
-    public TenantService(FireStore fireStore) {
-        this.fireStore = fireStore;
-    }
 
-    public Tenant getTenants() throws IOException, ExecutionException, InterruptedException {
-        List<QueryDocumentSnapshot> tenantSnapshot = fireStore.firestore()
-                .collection("tenants")
-                .whereEqualTo("tId", "1")
-                .get().get().getDocuments();
 
-        List<Tenant> retrievedTenant = tenantSnapshot.stream()
-                .map(snapshot -> snapshot.toObject(Tenant.class))
-                .toList();
 
-        return retrievedTenant.getFirst();
-    }
 }
 
