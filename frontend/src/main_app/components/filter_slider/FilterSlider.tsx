@@ -76,6 +76,7 @@ const FilterSlider = () => {
 
     return (
         <div className="filter-slider">
+            {showPrev && <div className="cover-left"></div>}
             <div className="buttonGroup">
                 {showPrev && <Button icon={<ArrowLeftOutlined />} className="prev" type="dashed" onClick={prevItem} />}
                 {showNext && <Button icon={<ArrowRightOutlined />} className="next" type="dashed" onClick={nextItem} />}
@@ -487,6 +488,7 @@ const FilterSlider = () => {
                     <span>test description</span>
                 </div>
             </div>
+            {showNext && <div className="cover-right"></div>}
             <button onClick={showModal} className="filter-button">
                 <FilterIcon /> Filter
             </button>

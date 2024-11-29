@@ -13,6 +13,9 @@ import './App.css';
 import Navbar from './core/components/navigation/Navbar';
 import Home from './main_app/home_page/Home';
 import { ConfigProvider } from 'antd';
+import { DataProvider } from './core/DataProvider';
+
+export const DataProviderContext = React.createContext(new DataProvider());
 
 /**
  * A component that renders the main navigation sidebar and contains
@@ -41,6 +44,7 @@ export function Application() {
                 components: {
                     Slider: {
                         handleColor: '#e31c5f',
+                        handleSize: 15,
                     },
                 },
             }}
@@ -59,15 +63,18 @@ export function Application() {
  * @returns         A router.
  */
 export function ApplicationRouter(): ReactNode {
+    const dataProvider = new DataProvider();
     return (
-        <RouterProvider
-            router={createBrowserRouter(
-                createRoutesFromElements(
-                    <Route path="/" element={<Application />}>
-                        <Route index element={<Home />}></Route>
-                    </Route>,
-                ),
-            )}
-        />
+        <DataProviderContext.Provider value={dataProvider}>
+            <RouterProvider
+                router={createBrowserRouter(
+                    createRoutesFromElements(
+                        <Route path="/" element={<Application />}>
+                            <Route index element={<Home />}></Route>
+                        </Route>,
+                    ),
+                )}
+            />
+        </DataProviderContext.Provider>
     );
 }
