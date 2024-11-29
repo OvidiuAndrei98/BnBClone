@@ -12,6 +12,7 @@ import React, { ReactNode, useEffect } from 'react';
 import './App.css';
 import Navbar from './core/components/navigation/Navbar';
 import Home from './main_app/home_page/Home';
+import { ConfigProvider } from 'antd';
 
 /**
  * A component that renders the main navigation sidebar and contains
@@ -29,13 +30,27 @@ export function Application() {
             navigate('/');
         }
     }, [location.pathname]);
-
+    // #e31c5f roz-mov
+    // #FF385C roze
     return (
-        <div className="app-container bnb-clone-root">
-            <Navbar />
-            <Outlet />
-            {/* Footer */}
-        </div>
+        <ConfigProvider
+            theme={{
+                token: {
+                    colorPrimary: '#FF385C',
+                },
+                components: {
+                    Slider: {
+                        handleColor: '#e31c5f',
+                    },
+                },
+            }}
+        >
+            <div className="app-container bnb-clone-root">
+                <Navbar />
+                <Outlet />
+                {/* Footer */}
+            </div>
+        </ConfigProvider>
     );
 }
 

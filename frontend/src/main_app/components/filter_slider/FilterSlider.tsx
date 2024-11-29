@@ -2,12 +2,23 @@ import React, { useEffect, useState } from 'react';
 import './FilterSlider.css';
 import { Button } from 'antd';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
+import { FilterIcon } from 'src/core/assets/Icons';
+import FiltersModal from '../filters_modal/FiltersModal';
 const FilterSlider = () => {
     const [items, setItems] = useState<HTMLElement[]>([]);
     const [visibleCardIndex, setVisibleCardIndex] = useState(0);
     const list = document.querySelector('.filters-list');
     const [showPrev, setShowPrev] = useState(false);
     const [showNext, setShowNext] = useState(true);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const onClose = () => {
+        setIsModalOpen(false);
+    };
 
     useEffect(() => {
         setItems(Array.from(document.querySelectorAll('.filter-icon-cointainer')));
@@ -476,6 +487,10 @@ const FilterSlider = () => {
                     <span>test description</span>
                 </div>
             </div>
+            <button onClick={showModal} className="filter-button">
+                <FilterIcon /> Filter
+            </button>
+            <FiltersModal isOpen={isModalOpen} onClose={onClose} />
         </div>
     );
 };

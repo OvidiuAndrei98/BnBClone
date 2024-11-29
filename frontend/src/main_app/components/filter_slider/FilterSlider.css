@@ -26,6 +26,27 @@
     align-items: center;
 }
 
+.filter-slider .filter-button {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+    background-color: white;
+    transition: all 200ms ease;
+}
+
+.filter-slider .filter-button:hover {
+    border: 1px solid #222222;
+    background-color: #f7f7f7;
+    cursor: pointer;
+}
+
 .filter-slider .filter-icon-cointainer:hover:before {
     content: '';
     bottom: -21px;
@@ -54,7 +75,7 @@
     /* stop scrolling before reaching edge */
     /* scroll-padding-left: 32px;
     scroll-padding-inline-start: 32px; */
-    min-width: 100%;
+    /* min-width: 100%; */
     align-items: center;
     height: 100%;
 }
@@ -111,5 +132,15 @@
 }
 
 .filter-slider .next {
-    right: 80px;
+    right: 150px;
+}
+
+@media (max-width: 1439px) {
+    .filter-slider {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .filter-slider .next {
+        right: 110px;
+    }
 }
