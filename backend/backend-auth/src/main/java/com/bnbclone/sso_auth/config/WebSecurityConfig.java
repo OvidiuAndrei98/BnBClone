@@ -53,7 +53,7 @@ public class WebSecurityConfig  {
 
     @Bean("2")
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests(auth -> {auth.requestMatchers("/*").permitAll(); })
+        http.authorizeRequests(auth -> {auth.requestMatchers("/*").permitAll();})
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .oauth2Login()
                 .clientRegistrationRepository(dynamicClientRegistrationRepository());
