@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+
+/backend/backend-auth/src/main/resources/private-key.json
