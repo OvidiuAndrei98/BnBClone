@@ -10,6 +10,38 @@
     gap: 15px;
 }
 
+.modal-options .ant-segmented {
+    border: 1px solid #dddddd;
+    padding: 5px;
+    background-color: white;
+}
+
+.modal-options .ant-segmented-item:nth-child(1) {
+    border-radius: 6px 0 0 6px;
+    border-right: 1px solid #dddddd;
+}
+
+.modal-options .ant-segmented-item:nth-child(3) {
+    border-left: 1px solid #dddddd;
+    border-radius: 0 6px 6px 0;
+}
+
+.modal-options .ant-segmented-item {
+    border: 1px solid transparent;
+}
+.modal-options .ant-segmented-item-selected {
+    border: 1px solid black !important;
+    border-radius: 6px !important;
+}
+
+.modal-options .ant-segmented:hover .ant-segmented-item:not(.ant-segmented-item-selected) {
+    border-color: transparent !important;
+}
+
+.modal-options .ant-segmented-thumb {
+    border: 1px solid black;
+}
+
 .modal-options .options-price-range .price-range-values {
     display: flex;
     justify-content: space-between;

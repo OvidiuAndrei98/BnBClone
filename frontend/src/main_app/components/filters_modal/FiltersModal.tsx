@@ -26,7 +26,7 @@ const FiltersModal = ({ isOpen, onClose }: FiltersModalInterface) => {
                 <div className="modal-options">
                     <div className="options">
                         <h1>Tipul cazarii</h1>
-                        <Segmented options={['Toate Tipurile', 'Camera', 'Locuinta intreaga']} block />
+                        <Segmented size="large" options={['Toate Tipurile', 'Camera', 'Locuinta intreaga']} block />
                     </div>
 
                     <div className="options-price-range">
