@@ -1,5 +1,6 @@
 package com.bnbclone.sso_auth.controller;
 
+import com.bnbclone.sso_auth.model.House;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
@@ -12,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AuthController {
@@ -36,7 +39,7 @@ public class AuthController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/sso/auth")
-    public String auth() {
-        return "redirect:http://localhost:8080/oauth2/authorization/1";
+    public String auth(@RequestParam String provider) {
+        return "redirect:http://localhost:8080/oauth2/authorization/" + provider;
     }
 }
