@@ -25,6 +25,14 @@
     0px 3px 12px -1px #1c375a29;
 }
 
+.login-modal .login-panel {
+  width: 100%;
+}
+
+.login-modal .ant-modal-content {
+  padding: 0;
+}
+
 .login-panel .login-title {
   margin: 20px auto;
 }

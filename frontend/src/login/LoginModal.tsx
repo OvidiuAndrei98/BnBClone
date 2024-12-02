@@ -1,11 +1,16 @@
 import { NavbarLogo } from 'src/core/assets/Icons';
 import './Login.css';
-import { Button, Input } from 'antd';
+import { Button, Input, Modal } from 'antd';
 import { LoginProps } from './Login';
 
-export function LoginModal(props: LoginProps) {
+interface LoginModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export function LoginModal(props: LoginProps & LoginModalProps) {
   return (
-    <div className="login">
+    <Modal className="login-modal" onCancel={props.onClose} maskClosable={true} open={props.isOpen} footer={() => ''}>
       <div className="login-panel" {...{ inert: props.loggingIn ? '' : undefined }}>
         <NavbarLogo />
         <h3 className="login-title">Login or Sign up</h3>
@@ -19,9 +24,6 @@ export function LoginModal(props: LoginProps) {
           <div className="divider"></div>
           <div>Or</div>
         </div>
-        {/* <button className="button large main-button" onClick={() => props.onLogin('auth0')}>
-          Sign in with SSO
-        </button> */}
         <Button
           size="large"
           type="default"
@@ -32,6 +34,6 @@ export function LoginModal(props: LoginProps) {
         </Button>
       </div>
       <div className={`form-loading-indicator ${props.loggingIn ? 'loading' : ''}`} />
-    </div>
+    </Modal>
   );
 }

@@ -1,8 +1,9 @@
 // import { Skeleton } from 'antd';
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useContext, useEffect, useState } from 'react';
 import { Login } from '../login/Login';
 import { authenticate } from '../service/AuthenticationService';
 import { redirect, useMatch } from 'react-router';
+import { message, Skeleton } from 'antd';
 // import { Client } from './client/Client';
 // import { DisplayAlert } from './utilities/Alert';
 
@@ -121,7 +122,7 @@ function DecodeJWT(token: string): TokenValues | undefined {
  */
 export function AuthenticationBoundary(props: { children?: ReactNode }) {
   const [authenticationState, setAuthenticationState] = useState(AuthenticationState.Unknown);
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState<string>();
   const [tokenValues, setTokenValues] = useState<TokenValues>();
   const queryParameters = new URLSearchParams(window.location.search);
 
@@ -179,28 +180,11 @@ export function AuthenticationBoundary(props: { children?: ReactNode }) {
     }
   }, [token]);
 
-  /**
-   * Redirects to the SSO login page to obtain the authorization token.
-   * @param provider authorization provider
-   */
-  async function login(provider: string) {
-    setLoggingIn(true);
-    // Obtain the URL to the SSO authentication page and redirect to it
-    try {
-      await authenticate(`/sso/auth?provider=${provider}`);
-      // Store the temporary request token and use it after the redirect to obtain an authentication token
-    } catch (e) {
-      alert('login failed');
-      setLoggingIn(false);
-    }
-  }
-
   switch (authenticationState) {
     case AuthenticationState.Unknown:
     default:
-    // return <Skeleton />;
+      return <Skeleton />;
     case AuthenticationState.Unauthenticated:
-      return <Login onLogin={login} loggingIn={isLoggingIn} />;
     case AuthenticationState.Authenticated:
       // For authenticated contexts, just render the children normally
       return (
@@ -216,3 +200,11 @@ export function AuthenticationBoundary(props: { children?: ReactNode }) {
       );
   }
 }
+
+export const useAuth = () => {
+  const context = useContext(AuthenticationContext);
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
+};
