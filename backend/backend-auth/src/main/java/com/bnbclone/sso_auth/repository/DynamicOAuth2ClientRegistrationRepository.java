@@ -18,29 +18,29 @@ public class DynamicOAuth2ClientRegistrationRepository implements ClientRegistra
     private TenantService tenantService;
     @Override
     public ClientRegistration findByRegistrationId(String registrationId) {
-        Tenant tenant1 = new Tenant("1","a","b","c","s");
-        Tenant tenant2 = new Tenant("2","a","b","c","s");
-//        try {
-//            tenant = tenantService.getTenants();
-//        } catch (IOException | ExecutionException | InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
-//        if (tenant == null) {
-//            return null;
-//        }
-        // Create a dynamic client registration based on the tenant's SSO provider
-        DynamicOAuth2ClientRegistration dynamicRegistration = createDynamicClientRegistration(tenant1);
+
+        Tenant tenant = null;
+        try {
+            tenant = tenantService.getProviderInfo(registrationId);
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        if (tenant == null) {
+                return null;
+            }
+
+        DynamicOAuth2ClientRegistration dynamicRegistration = createDynamicClientRegistration(tenant);
         return dynamicRegistration == null ? null : dynamicRegistration.getClientRegistration();
     }
 
     private DynamicOAuth2ClientRegistration createDynamicClientRegistration(Tenant tenant) {
-        DynamicOAuth2ClientRegistration dynamicClient1 = new DynamicOAuth2ClientRegistration(tenant.getId(), ClientRegistration.withRegistrationId("auth0")
-                .clientId("Cwtzy3XKdLzCHuYOnm1IlJA4Mik59FhJ")
-                .clientSecret("OdDKTXXE4ZY0k_-eexAV9B31bsDLJ89dwlys8NVwsPicRdU89XkKuHZKup9wxqyZ")
+        DynamicOAuth2ClientRegistration dynamicClient1 = new DynamicOAuth2ClientRegistration(tenant.getTenantId(), ClientRegistration.withRegistrationId("auth0")
+                .clientId(tenant.getClientId())
+                .clientSecret(tenant.getClientSecret())
                 .redirectUri("{baseUrl}/login/oauth2/code/{registrationId}")
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .scope("openid", "profile", "email")
-                .clientName(tenant.getId())
+                .clientName(tenant.getTenantId())
                 .authorizationUri(String.format("https://%s/authorize", "dev-8vs2lvif2du2k6a6.us.auth0.com"))
                 .tokenUri(String.format("https://%s/oauth/token", "dev-8vs2lvif2du2k6a6.us.auth0.com"))
                 .userInfoUri(String.format("https://%s/userinfo", "dev-8vs2lvif2du2k6a6.us.auth0.com"))
@@ -48,21 +48,19 @@ public class DynamicOAuth2ClientRegistrationRepository implements ClientRegistra
                 .userNameAttributeName("name")
                 .build());
 
-        DynamicOAuth2ClientRegistration dynamicClient2 = new DynamicOAuth2ClientRegistration(tenant.getId(), ClientRegistration.withRegistrationId("auth0")
-                .clientId("0oalbn55gxA9GwkxL5d7")
-                .clientSecret("aEmgLMkBMjMyHLSbcdk8b76dOjbWA4xrALnedq2TxFOsozsJtC9pPnWH7zg65btF")
-                .redirectUri("{baseUrl}/login/oauth2/code/{registrationId}")
+        DynamicOAuth2ClientRegistration dynamicClient2 = new DynamicOAuth2ClientRegistration(tenant.getTenantId(), ClientRegistration.withRegistrationId("google")
+                .clientId(tenant.getClientId())
+                .clientSecret(tenant.getClientSecret())
+                .redirectUri("{baseUrl}/login/oauth2/code/google")
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .scope("openid", "profile", "email")
-                .clientName(tenant.getId())
-                .authorizationUri(String.format("https://%s/authorize", "dev-88320673.okta.com/oauth2/v1"))
-                .tokenUri(String.format("https://%s/oauth/token", "dev-88320673.okta.com/oauth2/default"))
-                .userInfoUri(String.format("https://%s/userinfo", "dev-88320673.okta.com/oauth2/default"))
-                .jwkSetUri(String.format("https://%s/.well-known/jwks.json", "dev-88320673.okta.com/oauth2/default"))
+                .authorizationUri("https://accounts.google.com/o/oauth2/auth")
+                .tokenUri("https://oauth2.googleapis.com/token")
+                .jwkSetUri("https://www.googleapis.com/oauth2/v3/certs")
                 .userNameAttributeName("name")
                 .build());
 
-        return  dynamicClient1;
+        return  tenant.getTenantId().equals("google") ? dynamicClient2 : dynamicClient1;
 
 
     }

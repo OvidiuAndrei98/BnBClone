@@ -17,11 +17,16 @@ import java.util.concurrent.ExecutionException;
 @Service
 public class HouseService {
 
+    public List<House> getHouses() throws IOException, ExecutionException, InterruptedException {
+        Firestore dbClient = FirestoreClient.getFirestore();
+        ApiFuture<QuerySnapshot> addedDocRef = dbClient.collection("houses").get();
+        return addedDocRef.get().toObjects(House.class);
+    }
 
     public void addHousing(House house) throws IOException, ExecutionException, InterruptedException {
         Firestore dbClient = FirestoreClient.getFirestore();
         ApiFuture<DocumentReference> addedDocRef = dbClient.collection("houses").add(house);
-        System.out.println(addedDocRef.get());
+        System.out.println("Added document with ID: " + addedDocRef.get().getId());
     }
 }
 

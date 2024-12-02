@@ -19,10 +19,9 @@
 
 .homes-display-container .obj .photo {
     background-color: black;
-    border-radius: 15px;
     width: 100%;
     height: 100%;
-    border-radius: 14px;
+    border-radius: 12px;
     margin-bottom: 8px;
 }
 

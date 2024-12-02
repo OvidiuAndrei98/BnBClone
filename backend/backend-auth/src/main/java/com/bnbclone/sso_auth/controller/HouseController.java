@@ -2,20 +2,13 @@ package com.bnbclone.sso_auth.controller;
 
 import com.bnbclone.sso_auth.model.House;
 import com.bnbclone.sso_auth.service.HouseService;
-import com.google.api.client.util.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
-import org.springframework.security.oauth2.core.user.OAuth2User;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.time.Instant;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 @RestController
@@ -32,9 +25,14 @@ public class HouseController {
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping("/houses/add")
-    public ResponseEntity<String> addHouse() throws IOException, ExecutionException, InterruptedException {
-        House house = new House("Test", "TEST", "test", "Buc", 120, 4, "1", "test date"  , "test description");
+    @GetMapping("/houses")
+    public ResponseEntity<List<House>> getHouses() throws IOException, ExecutionException, InterruptedException {
+        return ResponseEntity.ok(houseService.getHouses());
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("/houses/add")
+    public ResponseEntity<String> addHouse(@RequestBody House house) throws IOException, ExecutionException, InterruptedException {
         houseService.addHousing(house);
         return ResponseEntity.ok("House added");
     }

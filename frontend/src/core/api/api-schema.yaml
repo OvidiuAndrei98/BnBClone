@@ -1,0 +1,114 @@
+{
+    'openapi': '3.0.1',
+    'info': { 'title': 'OpenAPI definition', 'version': 'v0' },
+    'servers': [{ 'url': 'http://localhost:8080', 'description': 'Generated server url' }],
+    'paths':
+        {
+            '/houses/add':
+                {
+                    'post':
+                        {
+                            'tags': ['house-controller'],
+                            'operationId': 'addHouse',
+                            'requestBody':
+                                {
+                                    'content':
+                                        { 'application/json': { 'schema': { '$ref': '#/components/schemas/House' } } },
+                                    'required': true,
+                                },
+                            'responses':
+                                {
+                                    '200':
+                                        {
+                                            'description': 'OK',
+                                            'content': { '*/*': { 'schema': { 'type': 'string' } } },
+                                        },
+                                },
+                        },
+                },
+            '/houses':
+                {
+                    'get':
+                        {
+                            'tags': ['house-controller'],
+                            'operationId': 'getHouses',
+                            'responses':
+                                {
+                                    '200':
+                                        {
+                                            'description': 'OK',
+                                            'content':
+                                                {
+                                                    '*/*':
+                                                        {
+                                                            'schema':
+                                                                {
+                                                                    'type': 'array',
+                                                                    'items': { '$ref': '#/components/schemas/House' },
+                                                                },
+                                                        },
+                                                },
+                                        },
+                                },
+                        },
+                },
+        },
+    'components':
+        {
+            'schemas':
+                {
+                    'House':
+                        {
+                            'type': 'object',
+                            'properties':
+                                {
+                                    'id': { 'type': 'string' },
+                                    'name': { 'type': 'string' },
+                                    'locationCords': { 'type': 'string' },
+                                    'locationName': { 'type': 'string' },
+                                    'price': { 'type': 'integer', 'format': 'int32' },
+                                    'rating': { 'type': 'integer', 'format': 'int32' },
+                                    'userId': { 'type': 'string' },
+                                    'publishingDate': { 'type': 'string' },
+                                    'description': { 'type': 'string' },
+                                    'reviews':
+                                        { 'type': 'array', 'items': { '$ref': '#/components/schemas/HouseReview' } },
+                                    'rooms': { 'type': 'array', 'items': { '$ref': '#/components/schemas/HouseRoom' } },
+                                },
+                        },
+                    'HouseReview':
+                        {
+                            'type': 'object',
+                            'properties':
+                                {
+                                    'userId': { 'type': 'string' },
+                                    'userName': { 'type': 'string' },
+                                    'rating': { '$ref': '#/components/schemas/ReviewRating' },
+                                    'review': { 'type': 'string' },
+                                },
+                        },
+                    'HouseRoom':
+                        {
+                            'type': 'object',
+                            'properties':
+                                {
+                                    'name': { 'type': 'string' },
+                                    'description': { 'type': 'string' },
+                                    'roomType':
+                                        { 'type': 'string', 'enum': ['BEDROOM', 'BATHROOM', 'KITCHEN', 'LIVINGROOM'] },
+                                },
+                        },
+                    'ReviewRating':
+                        {
+                            'type': 'object',
+                            'properties':
+                                {
+                                    'overall': { 'type': 'integer', 'format': 'int32' },
+                                    'communication': { 'type': 'integer', 'format': 'int32' },
+                                    'location': { 'type': 'integer', 'format': 'int32' },
+                                    'value': { 'type': 'integer', 'format': 'int32' },
+                                },
+                        },
+                },
+        },
+}

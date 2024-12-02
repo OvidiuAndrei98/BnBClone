@@ -4,6 +4,7 @@ import { HamburgerMenu, NavbarLogo, ProfileIconSvg } from 'src/core/assets/Icons
 import { Link } from 'react-router';
 import { Popover } from 'antd';
 import { AuthenticationContext } from 'src/core/AuthenticationBoundary';
+import { DataProviderContext } from 'src/App';
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const authedUser = useContext(AuthenticationContext);
@@ -12,7 +13,7 @@ const Navbar = () => {
         setOpen(false);
     };
 
-    const handleOpenChange = (newOpen: boolean) => {
+    const handleOpenChange = async (newOpen: boolean) => {
         setOpen(newOpen);
     };
 
