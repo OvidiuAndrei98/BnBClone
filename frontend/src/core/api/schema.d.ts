@@ -45,6 +45,7 @@ export interface components {
             name?: string;
             locationCords?: string;
             locationName?: string;
+            housingType?: string;
             /** Format: int32 */
             price?: number;
             /** Format: int32 */
