@@ -21,6 +21,7 @@ public class House {
     private String userId;
     private String publishingDate;
     private String description;
+    private HousingType housingType;
     private ArrayList<HouseReview> reviews;
     private ArrayList<HouseRoom> rooms;
 }
