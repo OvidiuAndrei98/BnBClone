@@ -1,48 +1,119 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Modal, Segmented, Slider, InputNumber, InputNumberProps, Input, InputProps, Button } from 'antd';
 import './FiltersModal.css';
 import { SliderRangeProps } from 'antd/es/slider';
-import { DataProviderContext } from 'src/App';
 interface FiltersModalInterface {
   isOpen: boolean;
   onClose: () => void;
   data: House[];
   updateData: (houses: House[]) => void;
 }
+
+/** Describes a filter used in filtering the houses */
+interface Filter {
+  filterType: string;
+  filterValue: any;
+}
+
 const FiltersModal = ({ isOpen, onClose, data, updateData }: FiltersModalInterface) => {
   const [minValue, setMinValue] = useState(1);
   const [maxVale, setMaxVale] = useState(1200);
-  const [filters, setFilters] = useState({ housingType: 'ROOM' });
+  const [filters, setFilters] = useState<Filter[]>([]);
   const [filteredData, setFilteredData] = useState<House[]>(data);
 
-  const updateFilters = (key: string, value: string) => {
-    const filtersClone = JSON.parse(JSON.stringify(filters));
-    filtersClone[key] = value;
-    setFilters(filtersClone);
+  useEffect(() => {
+    handleFilters();
+  }, [filters, data]);
+
+  /**
+   * Function used to update the filters list.
+   * If a filterType already exists, update only the value, otherwise add it
+   * @param key FilterType
+   * @param value FilterValue
+   */
+  const updateFilters = (key: string, value: any) => {
+    // Create the filter object with the new values
+    const filter = { filterType: key, filterValue: value };
+
+    // Using the setState like this because we need the old version to check if the filter is already there,
+    // And the state may not contain all the values if this hapen multiple times at once, so we tell react that we want
+    // the old values too.
+    setFilters((oldFiltersState) => {
+      // Clone the filters list to not change the state directly
+      const filtersList = [...oldFiltersState];
+      // Check if the filter already exista, and get the index
+      const existingFilter = oldFiltersState.findIndex((f) => f.filterType === key);
+      // If index is not -1, the filter is already in the list
+      if (existingFilter >= 0) {
+        // Update the filter existing in the list with updated value
+        filtersList[existingFilter] = filter;
+      } else {
+        // If the filter is not in the list, add the new filter
+        filtersList.push(filter);
+      }
+      // Return the updated list
+      return filtersList;
+    });
   };
 
-  useEffect(() => {
-    let filteredData = [];
-    filteredData = data.filter((h) => h.housingType === filters.housingType);
-    setFilteredData(filteredData);
-  }, [data]);
+  /**
+   * Fuunction used to handle the filtering
+   * Check all the filterTypes and manipulate the array in each case
+   */
+  const handleFilters = () => {
+    // Store the original data
+    let filteredData: House[] = data;
 
-  useEffect(() => {
-    let filteredData = [];
-    filteredData = data.filter((h) => h.housingType === filters.housingType);
+    // Iterate over the filters
+    filters.forEach((filter) => {
+      // Check each case and do something on the filteredData
+      if (filter.filterType === 'housingType') {
+        filteredData = filteredData.filter((h) => {
+          if (filter.filterValue === 'ANY') {
+            return true;
+          }
+          if (h.housingType === filter.filterValue) {
+            return true;
+          }
+        });
+      }
+      if (filter.filterType === 'minPrice') {
+        filteredData = filteredData.filter((h) => h.price > filter.filterValue);
+      }
+      if (filter.filterType === 'maxPrice') {
+        filteredData = filteredData.filter((h) => h.price < filter.filterValue);
+      }
+    });
+    // Return the filtered array
     setFilteredData(filteredData);
-  }, [filters]);
-
-  const onChangeMin: InputProps['onChange'] = (newValue) => {
-    setMinValue(Number(newValue));
   };
-  const onChangeMax: InputProps['onChange'] = (newValue) => {
-    setMaxVale(Number(newValue));
+
+  const onChangeMin: InputProps['onChange'] | any = (newValue: any) => {
+    // Because the `newValue` can be an event or a number, first we have to check if its an event
+    let value: any;
+    if (newValue.currentTarget) {
+      value = newValue.currentTarget.value;
+    } else {
+      value = Number(newValue);
+    }
+    updateFilters('minPrice', value);
+    setMinValue(value);
+  };
+  const onChangeMax = (newValue: any) => {
+    // Because the `newValue` can be an event or a number, first we have to check if its an event
+    let value: any;
+    if (newValue.currentTarget) {
+      value = newValue.currentTarget.value;
+    } else {
+      value = Number(newValue);
+    }
+    updateFilters('maxPrice', value);
+    setMaxVale(value);
   };
 
   const onChangeSlider: SliderRangeProps['onChange'] = (newValue) => {
-    setMinValue(newValue[0]);
-    setMaxVale(newValue[1]);
+    onChangeMin(newValue[0]);
+    onChangeMax(newValue[1]);
   };
   return (
     <>

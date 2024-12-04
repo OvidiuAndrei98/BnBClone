@@ -22,10 +22,6 @@ const Home = () => {
     }
   };
 
-  //   const updateHouses = (houses: House[]) => {
-  //     setHouses(houses);
-  //   };
-
   /** Loads intial housings */
   useEffect(() => {
     queryHouses();
