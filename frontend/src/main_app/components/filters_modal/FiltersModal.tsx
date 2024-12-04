@@ -38,6 +38,7 @@ const FiltersModal = ({ isOpen, onClose, data, updateData }: FiltersModalInterfa
     // Using the setState like this because we need the old version to check if the filter is already there,
     // And the state may not contain all the values if this hapen multiple times at once, so we tell react that we want
     // the old values too.
+    // https://react.dev/learn/queueing-a-series-of-state-updates#challenges - Read more info here
     setFilters((oldFiltersState) => {
       // Clone the filters list to not change the state directly
       const filtersList = [...oldFiltersState];
